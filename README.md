@@ -1,29 +1,26 @@
 # CampusConnect: Student Management System
+A Java Servlet + JSP + JDBC + MySQL CRUD web application for an AIP practical project.
 
-## Overview
-CampusConnect is a web-based Student Management System designed to organize and manage student records through a centralized database.
-
-## Technologies Used
-- HTML and CSS
-- Java
-- Java Servlets
-- JavaServer Pages (JSP)
-- JDBC
-- MySQL
-- Apache Tomcat
-
-## Features
-- View student records
-- Add new student records
-- Update existing student information
-- Delete student records
-- Validate student input
-
-## Project Purpose
-This project is developed as part of the Advanced Internet Programming (AIP) coursework to demonstrate client-server architecture, Servlet request handling, JSP, JDBC connectivity, and database-driven CRUD operations.
+## Requirements
+- JDK 11 or later
+- Maven 3.8+
+- Apache Tomcat 9.x (project uses `javax.servlet`)
+- MySQL 8.x
 
 ## Setup
-Setup instructions will be added after the source code and database configuration are finalized.
+1. Run `database/campusconnect.sql` in MySQL Workbench or MySQL terminal.
+2. Set environment variables before starting Tomcat/IDE:
+   - `CAMPUSCONNECT_DB_USER` (defaults to `root`)
+   - `CAMPUSCONNECT_DB_PASSWORD` (required; your local MySQL password)
+   - `CAMPUSCONNECT_DB_URL` (optional; default `jdbc:mysql://localhost:3306/campusconnect?useSSL=false&serverTimezone=UTC`)
+3. Build in this folder: `mvn clean package`
+4. Copy `target/CampusConnect.war` to Tomcat 9's `webapps` folder and start Tomcat.
+5. Open `http://localhost:8080/CampusConnect/students`.
 
-## Status
-Project source code and execution instructions are being prepared.
+## Features
+- Add, list, edit, and delete student records
+- Server-side validation for required fields
+- JDBC with `PreparedStatement`
+- Duplicate email handling
+
+This is a learning project, not production-ready. It has no authentication/role-based access control. Run it locally and capture real screenshots before describing tests as passed in the report.
